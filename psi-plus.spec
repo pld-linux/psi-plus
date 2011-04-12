@@ -7,7 +7,7 @@
 # Requires: git-core, subversion and sed >= 4.0
 #
 %define		ver	0.15
-%define		rev	3784
+%define		rev	3792
 %define		rel	0.%{rev}.1
 #
 Summary:	PSI - Jabber client
@@ -18,9 +18,9 @@ Version:	%{ver}.%{rev}
 Release:	%{rel}
 License:	GPL v2+ / LGPL v2.1+
 Group:		Applications/Communications
-Source0:	psi-%{version}.tar.xz
-# Source0-md5:	576c2b20cc0748dbf9cae02f7bb69391
-Source1:	psi-lang.tar.bz2
+Source0:	%{name}-%{version}.tar.xz
+# Source0-md5:	df532794527ca1bbe8d24390651c6804
+Source1:	%{name}-lang.tar.bz2
 # Source1-md5:	cf6d82f53f1f1600a49bb61ba81151bf
 Source2:	generate-tarball.sh
 Patch0:		%{name}-fix_configure_for_ksh.patch
@@ -76,7 +76,7 @@ w katalogu $DATADIR/certs lub ~/.psi/certs.
 Psi+ jest rozwojową gałęzią komunikatora Psi IM Jabber.
 
 %prep
-%setup -q -n psi-%{version} -a 1
+%setup -q -a 1
 %patch0 -p0
 %patch1 -p1
 %patch2 -p1
