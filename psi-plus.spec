@@ -19,7 +19,7 @@ Release:	%{rel}
 License:	GPL v2+ / LGPL v2.1+
 Group:		Applications/Communications
 Source0:	%{name}-%{version}.tar.xz
-# Source0-md5:	df532794527ca1bbe8d24390651c6804
+# Source0-md5:	5abca34a9aadbd5883c46783211805d3
 Source1:	%{name}-lang.tar.bz2
 # Source1-md5:	cf6d82f53f1f1600a49bb61ba81151bf
 Source2:	generate-tarball.sh
