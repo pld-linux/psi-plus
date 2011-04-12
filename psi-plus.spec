@@ -52,6 +52,7 @@ Requires:	gstreamer-video4linux
 Requires:	qt4-plugin-qca-ossl
 Suggests:	gpgme >= 1.0.0
 Obsoletes:	qt-designer-psiwidgets
+Conflicts:	psi
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
