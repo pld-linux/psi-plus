@@ -14,6 +14,6 @@ sed "s/\(.xxx\)/.${pkgrel}/" -i "applicationinfo.cpp"
 cd ..
 svn co --force http://psi-dev.googlecode.com/svn/trunk/iconsets/ iconsets
 cd ..
-mv psi psi-0.15.${pkgrel}
-tar -cvJf psi-0.15.${pkgrel}.tar.xz psi-0.15.${pkgrel}
-rm -rf psi-0.15.${pkgrel}
+mv psi psi-plus-0.15.${pkgrel}
+tar -cvJf psi-plus-0.15.${pkgrel}.tar.xz psi-plus-0.15.${pkgrel}
+rm -rf psi-plus-0.15.${pkgrel}
