@@ -8,7 +8,7 @@
 #
 %define		ver	0.15
 %define		rev	3792
-%define		rel	0.%{rev}.2
+%define		rel	0.%{rev}.3
 #
 Summary:	PSI - Jabber client
 Summary(de.UTF-8):	PSI - ein Instant Messaging Client-Programm für Jabber
@@ -54,7 +54,6 @@ Suggests:	gpgme >= 1.0.0
 Provides:	psi = %{version}-%{relase}
 Obsoletes:	psi < 0.15
 Obsoletes:	qt-designer-psiwidgets
-Conflicts:	psi
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
