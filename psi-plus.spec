@@ -7,7 +7,7 @@
 # Requires: git-core, subversion and sed >= 4.0
 #
 %define		ver	0.15
-%define		rev	3792
+%define		rev	3881
 %define		rel	0.%{rev}.3
 #
 Summary:	PSI - Jabber client
@@ -19,7 +19,7 @@ Release:	%{rel}
 License:	GPL v2+ / LGPL v2.1+
 Group:		Applications/Communications
 Source0:	%{name}-%{version}.tar.xz
-# Source0-md5:	5abca34a9aadbd5883c46783211805d3
+# Source0-md5:	518478362a91c8e5e31dc8c6c13e6d6d
 Source1:	%{name}-lang.tar.bz2
 # Source1-md5:	cf6d82f53f1f1600a49bb61ba81151bf
 Source2:	generate-tarball.sh
