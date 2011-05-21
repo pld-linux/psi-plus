@@ -8,7 +8,7 @@
 #
 %define		ver	0.15
 %define		rev	3881
-%define		rel	0.%{rev}.3
+%define		rel	0.%{rev}.4
 #
 Summary:	PSI - Jabber client
 Summary(de.UTF-8):	PSI - ein Instant Messaging Client-Programm für Jabber
@@ -48,7 +48,6 @@ BuildRequires:	xorg-proto-scrnsaverproto-devel
 BuildRequires:	xz >= 1:4.999.7
 BuildRequires:	zlib-devel
 Requires:	gstreamer-v4l2
-Requires:	gstreamer-video4linux
 Requires:	qt4-plugin-qca-ossl
 Suggests:	gpgme >= 1.0.0
 Provides:	psi = %{version}-%{relase}
