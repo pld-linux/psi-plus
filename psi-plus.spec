@@ -7,8 +7,8 @@
 # Requires: git-core, subversion and sed >= 4.0
 #
 %define		ver	0.15
-%define		rev	4036
-%define		rel	0.%{rev}.4
+%define		rev	4040
+%define		rel	0.%{rev}.1
 #
 Summary:	PSI - Jabber client
 Summary(de.UTF-8):	PSI - ein Instant Messaging Client-Programm für Jabber
@@ -19,7 +19,7 @@ Release:	%{rel}
 License:	GPL v2+ / LGPL v2.1+
 Group:		Applications/Communications
 Source0:	%{name}-%{version}.tar.xz
-# Source0-md5:	79eeac958b94593b3f9cc1eb32a4cbd9
+# Source0-md5:	449ea153253f830927f4d8c0af3bd03c
 Source1:	%{name}-lang.tar.bz2
 # Source1-md5:	cf6d82f53f1f1600a49bb61ba81151bf
 Source2:	generate-tarball.sh
