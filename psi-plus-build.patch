@@ -1,0 +1,11 @@
+--- psi-plus-0.15.4040/src/systeminfo.cpp~	2011-06-16 08:45:22.000000000 +0200
++++ psi-plus-0.15.4040/src/systeminfo.cpp	2011-06-16 08:49:40.974191785 +0200
+@@ -108,7 +108,7 @@
+ 		QString file;
+ 		QString name;
+ 	} osInfo[] = {
+-		{ LinuxCustom,		OsUseFile,	ApplicationInfo::homeDir() + "/custom-os",	""	},
++		{ LinuxCustom,		OsUseFile,	ApplicationInfo::homeDir(ApplicationInfo::ConfigLocation) + "/custom-os",	""	},
+ 
+ 		{ LinuxMandrake,	OsUseFile,	"/etc/mandrake-release",	"Mandrake Linux"	},
+ 		{ LinuxDebian,		OsAppendFile,	"/etc/debian_version",		"Debian GNU/Linux"	},

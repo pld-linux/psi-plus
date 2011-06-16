@@ -8,7 +8,7 @@
 #
 %define		ver	0.15
 %define		rev	4040
-%define		rel	0.%{rev}.1
+%define		rel	0.%{rev}.2
 #
 Summary:	PSI - Jabber client
 Summary(de.UTF-8):	PSI - ein Instant Messaging Client-Programm für Jabber
@@ -27,6 +27,7 @@ Patch0:		%{name}-fix_configure_for_ksh.patch
 Patch1:		%{name}-customos.patch
 Patch2:		%{name}-icon_buttons_big_return-mod.patch
 Patch3:		%{name}-empty_group-fix.patch
+Patch4:		%{name}-build.patch
 URL:		http://psi-plus.com/
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
@@ -82,6 +83,7 @@ Psi+ jest rozwojową gałęzią komunikatora Psi IM Jabber.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %{__rm} -r third-party
 
