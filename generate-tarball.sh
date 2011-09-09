@@ -7,6 +7,8 @@ git submodule update
 git pull
 git submodule update
 svn co http://psi-dev.googlecode.com/svn/trunk/patches/
+# already applied
+rm patches/0005-psi-proxy-settings-in-opt.diff
 cat patches/*.diff | patch -p1
 pkgrel=`svnversion "patches"`
 cd src
