@@ -15,7 +15,7 @@
  
  class QMenu;
  
-+QMenu *menu_;
++static QMenu *menu_;
 +
  class ActionLineEditButton : public QAbstractButton
  {
