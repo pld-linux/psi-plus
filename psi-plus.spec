@@ -1,40 +1,21 @@
-#
-# TODO: - check BRs
-#
-# NOTE:
-#
-# To generate source package use generate-tarball.sh script included to this spec as SourceX.
-# Requires: git-core, subversion and sed >= 4.0
-#
-%define		ver	0.15
-%define		rev	4128M
-%define		rel	0.%{rev}.1
-#
 Summary:	PSI - Jabber client
 Summary(de.UTF-8):	PSI - ein Instant Messaging Client-Programm für Jabber
 Summary(pl.UTF-8):	PSI - klient Jabbera
 Name:		psi-plus
-Version:	%{ver}.%{rev}
-Release:	%{rel}
+Version:	0.16.447
+Release:	1
 License:	GPL v2+ / LGPL v2.1+
 Group:		Applications/Communications
-Source0:	%{name}-%{version}.tar.xz
-# Source0-md5:	581be6071f50e95a3f87a31874ec8e4f
-Source1:	%{name}-lang.tar.bz2
-# Source1-md5:	cf6d82f53f1f1600a49bb61ba81151bf
-Source2:	generate-tarball.sh
-Patch0:		%{name}-fix_configure_for_ksh.patch
-Patch1:		%{name}-customos.patch
-Patch2:		%{name}-icon_buttons_big_return-mod.patch
-Patch3:		%{name}-empty_group-fix.patch
-Patch4:		%{name}-build.patch
-URL:		http://psi-plus.com/
+Source0:	https://github.com/psi-plus/psi-plus-snapshots/archive/%{version}.tar.gz
+# Source0-md5:	9de217db835a622c046d1ab1e9831c90
+URL:		https://github.com/psi-plus/psi-plus-snapshots
 BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
 BuildRequires:	QtDBus-devel
 BuildRequires:	QtNetwork-devel
 BuildRequires:	QtXml-devel
 BuildRequires:	aspell-devel
+BuildRequires:	libidn-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	openssl-devel >= 0.9.7c
 BuildRequires:	qca-devel >= 2.0.0
@@ -52,7 +33,7 @@ Requires:	gstreamer-v4l2
 Requires:	qt4-plugin-qca-ossl
 Suggests:	gpgme >= 1.0.0
 Provides:	psi = %{version}-%{relase}
-Obsoletes:	psi < 0.15
+Obsoletes:	psi < 0.16
 Obsoletes:	qt-designer-psiwidgets
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -78,38 +59,29 @@ w katalogu $DATADIR/certs lub ~/.psi/certs.
 Psi+ jest rozwojową gałęzią komunikatora Psi IM Jabber.
 
 %prep
-%setup -q -a 1
-%patch0 -p0
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-
-%{__rm} -r third-party
+%setup -q -n %{name}-snapshots-%{version}
 
 %build
 ./configure \
 	--prefix=%{_prefix} \
 	--datadir=%{_datadir} \
 	--libdir=%{_libdir} \
+	--enable-webkit \
+	--enable-whiteboarding \
+	--enable-plugins \
 	--no-separate-debug-info
 
 %{__make}
-
-cd lang
-lrelease-qt4 *.ts
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 export QTDIR=%{_libdir}/qt4
 
-install -d $RPM_BUILD_ROOT%{_libdir}/psi/plugins
+install -d $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins
 
 %{__make} install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT
-
-cp -a lang/*.qm $RPM_BUILD_ROOT%{_datadir}/psi/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -118,34 +90,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README
 %attr(755,root,root) %{_bindir}/psi-plus
-%dir %{_datadir}/psi
-%lang(ar) %{_datadir}/psi/*_ar.qm
-%lang(ca) %{_datadir}/psi/*_ca.qm
-%lang(cs) %{_datadir}/psi/*_cs.qm
-%lang(da) %{_datadir}/psi/*_da.qm
-%lang(de) %{_datadir}/psi/*_de.qm
-%lang(el) %{_datadir}/psi/*_el.qm
-%lang(eo) %{_datadir}/psi/*_eo.qm
-%lang(es) %{_datadir}/psi/*_es.qm
-%lang(fi) %{_datadir}/psi/*_fi.qm
-%lang(fr) %{_datadir}/psi/*_fr.qm
-%lang(it) %{_datadir}/psi/*_it.qm
-%lang(jp) %{_datadir}/psi/*_jp.qm
-%lang(mk) %{_datadir}/psi/*_mk.qm
-%lang(nl) %{_datadir}/psi/*_nl.qm
-%lang(pl) %{_datadir}/psi/*_pl.qm
-%lang(pt_BR) %{_datadir}/psi/*_ptbr.qm
-%lang(pt) %{_datadir}/psi/*_pt.qm
-%lang(ru) %{_datadir}/psi/*_ru.qm
-%lang(se) %{_datadir}/psi/*_se.qm
-%lang(sk) %{_datadir}/psi/*_sk.qm
-%lang(sr) %{_datadir}/psi/*_sr.qm
-%lang(uk) %{_datadir}/psi/*_uk.qm
-%lang(zh) %{_datadir}/psi/*_zh.qm
-%dir %{_libdir}/psi
-%dir %{_libdir}/psi/plugins
-%{_datadir}/psi/certs
-%{_datadir}/psi/iconsets
-%{_datadir}/psi/sound
+%dir %{_datadir}/%{name}
+%dir %{_libdir}/%{name}
+%dir %{_libdir}/%{name}/plugins
+%{_datadir}/%{name}/certs
+%{_datadir}/%{name}/iconsets
+%{_datadir}/%{name}/sound
+%{_datadir}/%{name}/themes
 %{_desktopdir}/*.desktop
 %{_iconsdir}/hicolor/*/*/*.png
