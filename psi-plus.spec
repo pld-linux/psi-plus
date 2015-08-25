@@ -85,9 +85,6 @@ install -d $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins
 %{__make} install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT
 
-ln -s %{name} $RPM_BUILD_ROOT%{_datadir}/psi
-ln -s %{name} $RPM_BUILD_ROOT%{_libdir}/psi
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -97,8 +94,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/psi-plus
 %{_datadir}/psi
 %{_libdir}/psi
-%dir %{_datadir}/%{name}
-%dir %{_libdir}/%{name}
 %dir %{_libdir}/%{name}/plugins
 %{_datadir}/%{name}/certs
 %{_datadir}/%{name}/iconsets
