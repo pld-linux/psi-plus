@@ -3,7 +3,7 @@ Summary(de.UTF-8):	PSI - ein Instant Messaging Client-Programm für Jabber
 Summary(pl.UTF-8):	PSI - klient Jabbera
 Name:		psi-plus
 Version:	0.16.470
-Release:	1
+Release:	2
 License:	GPL v2+ / LGPL v2.1+
 Group:		Applications/Communications
 Source0:	https://github.com/psi-plus/psi-plus-snapshots/archive/%{version}.tar.gz
@@ -13,6 +13,8 @@ BuildRequires:	Qt3Support-devel
 BuildRequires:	QtCore-devel
 BuildRequires:	QtDBus-devel
 BuildRequires:	QtNetwork-devel
+BuildRequires:	QtSvg-devel
+BuildRequires:	QtWebKit-devel
 BuildRequires:	QtXml-devel
 BuildRequires:	aspell-devel
 BuildRequires:	libidn-devel
@@ -83,6 +85,9 @@ install -d $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins
 %{__make} install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT
 
+ln -s %{name} $RPM_BUILD_ROOT%{_datadir}/psi
+ln -s %{name} $RPM_BUILD_ROOT%{_libdir}/psi
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -90,6 +95,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README
 %attr(755,root,root) %{_bindir}/psi-plus
+%{_datadir}/psi
+%{_libdir}/psi
 %dir %{_datadir}/%{name}
 %dir %{_libdir}/%{name}
 %dir %{_libdir}/%{name}/plugins
