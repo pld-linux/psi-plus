@@ -2,28 +2,25 @@ Summary:	PSI - Jabber client
 Summary(de.UTF-8):	PSI - ein Instant Messaging Client-Programm für Jabber
 Summary(pl.UTF-8):	PSI - klient Jabbera
 Name:		psi-plus
-Version:	0.16.571.630
+Version:	1.2.39
 Release:	1
 License:	GPL v2+ / LGPL v2.1+
 Group:		Applications/Communications
 Source0:	https://github.com/psi-plus/psi-plus-snapshots/archive/%{version}.tar.gz
-# Source0-md5:	58d221f66bac23f497a2de97f073b0da
+# Source0-md5:	55f22c46a55e7874bf3d460c12e4683a
 URL:		https://github.com/psi-plus/psi-plus-snapshots
-BuildRequires:	Qt3Support-devel
-BuildRequires:	QtCore-devel
-BuildRequires:	QtDBus-devel
-BuildRequires:	QtNetwork-devel
-BuildRequires:	QtSvg-devel
-BuildRequires:	QtWebKit-devel
-BuildRequires:	QtXml-devel
+BuildRequires:	Qt5Core-devel
+BuildRequires:	Qt5Gui-devel
+BuildRequires:	Qt5Network
+BuildRequires:	Qt5Xml
 BuildRequires:	aspell-devel
 BuildRequires:	libidn-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	openssl-devel >= 0.9.7c
-BuildRequires:	qca-devel >= 2.0.0
-BuildRequires:	qt4-build >= 4.4.0
+BuildRequires:	qca-qt5-devel >= 2.0.0
 BuildRequires:	qt4-linguist >= 4.4.0
-BuildRequires:	qt4-qmake >= 4.4.0
+BuildRequires:	qt5-build >= 4.4.0
+BuildRequires:	qt5-qmake >= 4.4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	which
 BuildRequires:	xorg-lib-libX11-devel
@@ -32,7 +29,7 @@ BuildRequires:	xorg-proto-scrnsaverproto-devel
 BuildRequires:	xz >= 1:4.999.7
 BuildRequires:	zlib-devel
 Requires:	gstreamer-v4l2
-Requires:	qt4-plugin-qca-ossl
+Requires:	qt-plugin-qca-tls
 Suggests:	gpgme >= 1.0.0
 Provides:	psi = %{version}-%{relase}
 Obsoletes:	psi < 0.16
@@ -65,6 +62,7 @@ Psi+ jest rozwojową gałęzią komunikatora Psi IM Jabber.
 
 %build
 ./configure \
+	--qtselect=5 \
 	--prefix=%{_prefix} \
 	--datadir=%{_datadir} \
 	--libdir=%{_libdir} \
@@ -77,7 +75,7 @@ Psi+ jest rozwojową gałęzią komunikatora Psi IM Jabber.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-export QTDIR=%{_libdir}/qt4
+export QTDIR=%{_libdir}/qt5
 
 install -d $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins
 
