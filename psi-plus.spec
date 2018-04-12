@@ -3,7 +3,7 @@ Summary(de.UTF-8):	PSI - ein Instant Messaging Client-Programm für Jabber
 Summary(pl.UTF-8):	PSI - klient Jabbera
 Name:		psi-plus
 Version:	1.2.243
-Release:	1
+Release:	2
 License:	GPL v2+ / LGPL v2.1+
 Group:		Applications/Communications
 Source0:	https://github.com/psi-plus/psi-plus-snapshots/archive/%{version}.tar.gz
