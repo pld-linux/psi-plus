@@ -11,6 +11,7 @@ Source0:	https://github.com/psi-plus/psi-plus-snapshots/archive/%{version}.tar.g
 URL:		https://github.com/psi-plus/psi-plus-snapshots
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5Gui-devel
+BuildRequires:	Qt5Keychain-devel >= 0.8.0
 BuildRequires:	Qt5Network
 BuildRequires:	Qt5Xml
 BuildRequires:	aspell-devel
